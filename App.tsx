@@ -1,28 +1,30 @@
 import React from 'react';
 
 import StartGameScreen from './screens/StartGameScreen';
+import {ImageBackground, StyleSheet} from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 function App(): JSX.Element {
-  return <StartGameScreen />;
+  return (
+    <LinearGradient colors={['#4e0329', '#ddb52f']} style={styles.rootScreen}>
+      <ImageBackground
+        source={require('./assets/images/background.png')}
+        resizeMode="cover"
+        style={styles.rootScreen}
+        imageStyle={styles.backgroundImage}>
+        <StartGameScreen />
+      </ImageBackground>
+    </LinearGradient>
+  );
 }
 
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-//   sectionTitle: {
-//     fontSize: 24,
-//     fontWeight: '600',
-//   },
-//   sectionDescription: {
-//     marginTop: 8,
-//     fontSize: 18,
-//     fontWeight: '400',
-//   },
-//   highlight: {
-//     fontWeight: '700',
-//   },
-// });
+const styles = StyleSheet.create({
+  rootScreen: {
+    flex: 1,
+  },
+  backgroundImage: {
+    opacity: 0.15,
+  },
+});
 
 export default App;
