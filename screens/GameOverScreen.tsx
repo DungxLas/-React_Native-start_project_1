@@ -1,3 +1,8 @@
-function OverGameScreen() {}
+import React from 'react';
+import {Text} from 'react-native';
 
-export default OverGameScreen;
+function GameOverScreen() {
+  return <Text>Game is over XXX</Text>;
+}
+
+export default GameOverScreen;
