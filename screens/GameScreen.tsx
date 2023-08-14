@@ -5,6 +5,7 @@ import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Card from '../components/ui/Card';
 import InstrucionText from '../components/ui/InstrucionText';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function generateRandomBetween(min: number, max: number, exclude: any) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -69,12 +70,12 @@ function GameScreen(this: any, {userNumber, onGameOver}: any) {
         <View style={styles.buttonsContainer}>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, 'lower')}>
-              -
+              <Icon name="remove" size={24} color="white" />
             </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, 'greater')}>
-              +
+              <Icon name="add" size={24} color="white" />
             </PrimaryButton>
           </View>
         </View>
