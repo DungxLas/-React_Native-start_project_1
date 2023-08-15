@@ -9,8 +9,9 @@ import GameOverScreen from './screens/GameOverScreen';
 import {useFonts} from 'expo-font';
 
 function App(): JSX.Element {
-  const [userNumber, setUserNumber] = useState();
+  const [userNumber, setUserNumber] = useState<any | null>();
   const [gameIsOver, setGameIsOver] = useState(false);
+  const [guessRounds, setGuessRounds] = useState(0);
 
   const [fontsLoaded] = useFonts({
     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
@@ -26,8 +27,15 @@ function App(): JSX.Element {
     //setGameIsOver(false);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(numberOfRounds: any) {
     setGameIsOver(true);
+    setGuessRounds(numberOfRounds);
+  }
+
+  function startNewGameHandler() {
+    setGameIsOver(false);
+    setUserNumber(null);
+    setGuessRounds(0);
   }
 
   let screen = <StartGameScreen onPickedNumber={pickedNumberHandler} />;
@@ -38,8 +46,14 @@ function App(): JSX.Element {
     );
   }
 
-  if (gameIsOver) {
-    screen = <GameOverScreen />;
+  if (gameIsOver && userNumber) {
+    screen = (
+      <GameOverScreen
+        roundsNumber={guessRounds}
+        userNumber={userNumber}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   return (
