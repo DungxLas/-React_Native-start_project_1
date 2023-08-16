@@ -102,7 +102,11 @@ function GameScreen(this: any, {userNumber, onGameOver}: any) {
 }
 
 const styles = StyleSheet.create({
-  screen: {flex: 1, padding: 24},
+  screen: {
+    flex: 1,
+    padding: 24,
+    alignItems: 'center',
+  },
   instrucionText: {
     marginBottom: 12,
   },
