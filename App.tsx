@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
-import StartGameScreen from './screens/StartGameScreen';
 import {ImageBackground, SafeAreaView, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import GameScreen from './screens/GameScreen';
-import Colors from './constants/colors';
-import GameOverScreen from './screens/GameOverScreen';
+
 import {useFonts} from 'expo-font';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import GameOverScreen from './screens/GameOverScreen';
+import GameScreen from './screens/GameScreen';
+import StartGameScreen from './screens/StartGameScreen';
+import React from 'react';
 
 function App(): JSX.Element {
   const [userNumber, setUserNumber] = useState<any | null>();
